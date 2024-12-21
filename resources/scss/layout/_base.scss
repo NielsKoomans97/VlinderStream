@@ -1,0 +1,41 @@
+@use "screen" as *;
+
+body {
+    margin: 0;
+    padding: 0;
+
+    font-family: 'Raleway', sans-serif;
+}
+
+div.content {
+    margin: 0 auto;
+    height: 100vh;
+
+    @include screen-xxxl {
+        width: $screen-xxl;
+    }
+
+    @include screen-xxl {
+        width: $screen-xl;
+    }
+
+    @include screen-xl {
+        width: $screen-lg;
+    }
+
+    @include screen-lg {
+        width: $screen-md;
+    }
+
+    @include screen-md {
+        width: $screen-sm;
+    }
+
+    @include screen-sm {
+        width: 100vw;
+    }
+
+    @include screen-xs {
+        width: 100vw;
+    }
+}

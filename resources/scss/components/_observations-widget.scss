@@ -1,0 +1,128 @@
+@use "../config/variables" as *;
+
+div.observations-widget {
+    display: grid;
+
+    grid-template-columns: repeat(6, calc(100% / 6));
+    grid-template-rows: repeat(6, calc(100% / 6));
+
+    height: 100%;
+
+    background-color: map-get($map: $colors, $key: body);
+
+    span {
+        display: flex;
+
+        justify-content: space-between;
+        align-items: center;
+        text-align: center;
+
+        padding: 10px 15px;
+
+        font-size: 1.4rem;
+        font-weight: 600;
+
+        color: map-get($map: $colors, $key: text);
+    }
+
+    span.iconcode {
+        grid-column: 1 / span 2;
+        grid-row: 1 / span 3;
+
+        justify-content: center;
+    }
+
+    span.temperature {
+        grid-column: 3 / span 2;
+        grid-row: 1 / span 2;
+
+        border-bottom: 2px solid map-get($map: $colors, $key: border);
+        border-right: 2px solid map-get($map: $colors, $key: border);
+
+        font-size: 4rem;
+
+        i{
+            font-size: 1.4rem;
+        }
+    }
+
+    span.feeltemperature {
+        grid-column: 3 / span 2;
+        grid-row: 3;
+
+        border-right: 2px solid map-get($map: $colors, $key: border);
+    }
+
+    span.dewpoint{
+        grid-column: 1 / span 2;
+        grid-row: 5;
+
+        border-right: 2px solid map-get($map: $colors, $key: border);
+    }
+
+    span.winddirection {
+        flex-direction: column;
+        justify-content: space-evenly;
+
+        grid-column: 5 / span 2;
+        grid-row: 1 / span 3;
+
+        font-size: 2rem;
+
+        i {
+            font-size: 3.5rem;
+        }
+    }
+
+    span.windgusts {
+        grid-column: 3 / span 2;
+        grid-row: 6;
+
+        border-right: 2px solid map-get($map: $colors, $key: border);
+    }
+
+    span.groundtemperature {
+        grid-column: 1 / span 2;
+        grid-row: 4;
+
+        border-right: 2px solid map-get($map: $colors, $key: border);
+        border-top: 2px solid map-get($map: $colors, $key: border);
+    }
+
+    span.humidity {
+        grid-column: 1 / span 2;
+        grid-row: 6;
+
+        border-right: 2px solid map-get($map: $colors, $key: border);
+    }
+
+    span.precipitationmm {
+        grid-column: 5 / span 2;
+        grid-row: 4;
+
+        border-top: 2px solid map-get($map: $colors, $key: border);
+    }
+
+    span.airpressure {
+        grid-column: 3 / span 2;
+        grid-row: 4;
+
+        border-right: 2px solid map-get($map: $colors, $key: border);
+        border-top: 2px solid map-get($map: $colors, $key: border);
+    }
+
+    span.visibility {
+        grid-column: 3 / span 2;
+        grid-row: 5;
+
+        border-right: 2px solid map-get($map: $colors, $key: border);
+    }
+
+    span.stationname {
+        flex-direction: column;
+        justify-content: space-evenly;
+
+        grid-column: 5 / span 2;
+        grid-row: 5 / span 2;
+    }
+}
