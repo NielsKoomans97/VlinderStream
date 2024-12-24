@@ -77,7 +77,7 @@
 
     @case('dewpoint')
         <span class="{{ $key }}">
-           <i class="fa-solid fa-hand-holding-droplet"></i>
+           <i class="fa-solid fa-snowflake"></i>
 
             @php
                 $temperature = intval($data['temperature']);

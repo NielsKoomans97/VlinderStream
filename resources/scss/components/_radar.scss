@@ -1,0 +1,9 @@
+@use '../config/variables' as *;
+
+div.radar{
+    position: relative;
+    
+    div.frame{
+        position: absolute;
+    }
+}

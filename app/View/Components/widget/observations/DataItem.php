@@ -1,17 +1,20 @@
 <?php
 
-namespace App\View\Components\widget\observations;
+namespace App\View\Components\widget\Observations;
 
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class data-item extends Component
+class DataItem extends Component
 {
     /**
      * Create a new component instance.
      */
-    public function __construct()
+    public function __construct(
+        public array $data,
+        public string $key,
+    )
     {
         //
     }
