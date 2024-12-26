@@ -4,6 +4,7 @@
         $data = json_decode($json, true);
     @endphp
 
+   
     @for($index = 0; $index < count($data); $index++)
         <x-widget.radar.frame-item :data="$data" :index="$index" />
     @endfor

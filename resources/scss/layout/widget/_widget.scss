@@ -1,6 +1,7 @@
 div.content:has(div.observations-widget){
-    display: grid;
+    display: flex;
+    flex-direction: column;
 
-    grid-template-columns: auto;
-    grid-template-rows: 65% 35%;
+    width: 100vw;
+    overflow: hidden;
 }

@@ -2,7 +2,7 @@
     "private": true,
     "type": "module",
     "scripts": {
-        "build": "vite build && sass ",
+        "build": "vite build && sass resources\\scss\\app.scss public\\assets\\css\\app.css && cp -r resources\\public\\js public\\assets",
         "dev": "vite"
     },
     "devDependencies": {

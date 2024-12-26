@@ -1,4 +1,5 @@
 @use "../config/variables" as *;
+@use "../layout/screen" as *;
 
 div.observations-widget {
     display: grid;
@@ -8,29 +9,58 @@ div.observations-widget {
     grid-template-columns: repeat(6, calc(100% / 6));
     grid-template-rows: repeat(6, calc(100% / 6));
 
-    height: 100%;
+    height: 45vh;
 
     background-color: map-get($map: $colors, $key: body);
+
+    @include screen-md {
+        height: 40vh;
+    }
+
+    @include screen-sm {
+        height: 35vh;
+    }
+
+    @include screen-xs {
+        height: 35vh;
+    }
 
     span {
         display: flex;
 
         justify-content: space-between;
         align-items: center;
-        text-align: center;
 
-        padding: 10px 15px;
-        margin: 10px;
+        padding: 0 35px;
+        margin: 10px 0;
 
-        font-size: 1.4rem;
+        font-size: 1.6rem;
         font-weight: 600;
+
+        @include screen-md {
+            font-size: 1.4rem;
+            padding: 0 30px;
+        }
+
+        @include screen-sm {
+            font-size: 1.2rem;
+            padding: 0 20px;
+        }
+
+        @include screen-xs {
+            font-size: 1rem;
+            padding: 0 10px;
+        }
 
         color: map-get($map: $colors, $key: text);
 
-        i{
+        span {
+            text-align: end;
+
             border-bottom: 2px solid map-get($map: $colors, $key: border);
 
-            padding-bottom: 5px;
+            margin: unset;
+            padding: unset;
         }
     }
 
@@ -39,26 +69,65 @@ div.observations-widget {
         grid-row: 1 / span 3;
 
         margin: unset;
+        padding-right: 100px;
+        padding-bottom: 30px;
 
         justify-content: center;
 
-        border-bottom-right-radius: 50px;
+        border-bottom-right-radius: 100%;
+
         border-right: 2px solid map-get($map: $colors, $key: border);
 
-        background-color: map-get($map: $colors, $key: body);
-        box-shadow: 20px 20px 20px 10px rgba(map-get($colors, text),.04);
+        background: linear-gradient(145deg, map-get($colors, icon-background), map-get($colors, body));
+
+        box-shadow: 20px 20px 20px 10px rgba(map-get($colors, text), 0.04);
+
+        @include screen-md {
+            padding-right: 75px;
+
+            img {
+                width: 116px;
+            }
+        }
+
+        @include screen-sm {
+            padding-right: 55px;
+
+            img {
+                width: 96px;
+            }
+        }
+
+        @include screen-xs {
+            padding-right: 25px;
+
+            img {
+                width: 75px;
+            }
+        }
     }
 
     span.temperature {
         grid-column: 3 / span 2;
         grid-row: 1 / span 2;
 
-        //border-bottom: 2px solid map-get($map: $colors, $key: border);
-        //border-right: 2px solid map-get($map: $colors, $key: border);
+        span {
+            font-size: 4rem;
 
-        font-size: 4rem;
+            @include screen-md {
+                font-size: 3.5rem;
+            }
 
-        i{
+            @include screen-sm {
+                font-size: 3rem;
+            }
+
+            @include screen-xs {
+                font-size: 2.5rem;
+            }
+        }
+
+        i {
             font-size: 1.4rem;
         }
     }
@@ -66,15 +135,11 @@ div.observations-widget {
     span.feeltemperature {
         grid-column: 3 / span 2;
         grid-row: 3;
-
-        //border-right: 2px solid map-get($map: $colors, $key: border);
     }
 
-    span.dewpoint{
+    span.dewpoint {
         grid-column: 3 / span 2;
         grid-row: 5;
-
-        //border-right: 2px solid map-get($map: $colors, $key: border);
     }
 
     span.winddirection {
@@ -84,11 +149,36 @@ div.observations-widget {
         grid-column: 5 / span 2;
         grid-row: 1 / span 3;
 
-        font-size: 2rem;
+        span {
+            font-size: 2.5rem;
+
+            @include screen-md {
+                font-size: 2rem;
+            }
+
+            @include screen-sm {
+                font-size: 1.5rem;
+            }
+
+            @include screen-xs {
+                font-size: 1.3rem;
+            }
+        }
 
         i {
             font-size: 3.5rem;
 
+            @include screen-md {
+                font-size: 3rem;
+            }
+
+            @include screen-sm {
+                font-size: 2.5rem;
+            }
+
+            @include screen-xs {
+                font-size: 2.5rem;
+            }
             border: unset;
         }
     }
@@ -96,51 +186,60 @@ div.observations-widget {
     span.windgusts {
         grid-column: 5 / span 2;
         grid-row: 4;
-
-        //border-bottom: 2px solid map-get($map: $colors, $key: border);
     }
 
     span.groundtemperature {
         grid-column: 3 / span 2;
         grid-row: 4;
-
-        //border-right: 2px solid map-get($map: $colors, $key: border);
     }
 
     span.humidity {
         grid-column: 3 / span 2;
         grid-row: 6;
-
-        //border-right: 2px solid map-get($map: $colors, $key: border);
     }
 
     span.precipitationmm {
         grid-column: 1 / span 2;
         grid-row: 6;
-
-        //border-right: 2px solid map-get($map: $colors, $key: border);
     }
 
     span.airpressure {
         grid-column: 1 / span 2;
         grid-row: 4;
-
-        //border-right: 2px solid map-get($map: $colors, $key: border);
-        // //border-top: 2px solid map-get($map: $colors, $key: border);
     }
 
     span.visibility {
         grid-column: 1 / span 2;
         grid-row: 5;
-
-        //border-right: 2px solid map-get($map: $colors, $key: border);
     }
 
     span.stationname {
-        flex-direction: column;
-        justify-content: space-evenly;
-
         grid-column: 5 / span 2;
         grid-row: 5 / span 2;
+
+        margin: 15px 0 0 0;
+
+        background: linear-gradient(145deg, map-get($colors, body), map-get($colors, icon-background));
+
+        border-left: solid 2px map-get($map: $colors, $key: border);
+        border-top-left-radius: 75px;
+
+        box-shadow: -20px -20px 20px 10px rgba(map-get($colors, text), 0.04);
+
+        @include screen-md {
+            border-top-left-radius: 50px;
+        }
+
+        @include screen-sm {
+            border-top-left-radius: 45px;
+        }
+
+        @include screen-xs {
+            border-top-left-radius: 35px;
+        }
+
+        span {
+            border: unset;
+        }
     }
 }

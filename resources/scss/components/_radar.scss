@@ -1,9 +1,75 @@
-@use '../config/variables' as *;
+@use "../config/variables" as *;
+@use '../layout/screen' as *;
 
-div.radar{
-    position: relative;
+div.radar {
     
-    div.frame{
-        position: absolute;
+    display: flex;
+
+    height: 55vh;
+
+    @include screen-md{
+        height: 60vh;
+    }
+
+    @include screen-sm{
+        height: 65vh;
+    }
+
+    @include screen-xs{
+        height: 65vh;
+    }
+
+    img.country-background, img.country-border{
+        height: 100%;
+        width: 100%;
+    }
+
+    span.frame-item {
+        position: relative;
+
+        display: grid;
+
+        width: 100%;
+        height: 100%;
+
+        img{
+            position: absolute;
+
+            height: 100%;
+            width: 100%;
+
+            object-fit: cover;
+        }
+
+        span.time{
+            display: flex;
+            justify-content: center;
+            
+            width: 150px;
+
+            position: absolute;
+
+            background-color: map-get($map: $colors, $key: body);
+            color: map-get($map: $colors, $key: text);
+
+            font-size: 3rem;
+            font-weight: 600;
+
+            margin: 25px;
+            padding: 10px 25px;
+
+            border-radius: 40px;
+            border-left: 2px solid map-get($map: $colors, $key: border);
+            border-right: 2px solid map-get($map: $colors, $key: border);
+
+        }
+
+        &.hidden {
+            display: none;
+        }
+
+        &.active {
+            display: grid;
+        }
     }
 }
